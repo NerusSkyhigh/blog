@@ -1,0 +1,10 @@
+---
+title: "Projects"
+author: "Guglielmo Grillo"
+date: "2023-07-12"
+categories: [news, code, analysis, projects]
+image: "image.jpg"
+---
+
+This is a post with executable code.
+But where is it??? D :

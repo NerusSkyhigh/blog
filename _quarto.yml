@@ -1,0 +1,21 @@
+project:
+  type: website
+  output-dir: blog
+
+website:
+  title: "NerusSkyhigh's Personal Blog"
+  navbar:
+    right:
+      - about.qmd
+      - posts/00_Projects/index.qmd
+      - text: "Resumé"
+        href: https://nerusskyhigh.github.io/online-cv/
+      - icon: github
+        href: https://github.com/nerusskyhigh
+format:
+  html:
+    theme: superhero
+    css: styles.css
+
+
+
