@@ -1,14 +1,160 @@
 ---
-title: "blog"
-listing:
-  contents: posts
-  sort: "date desc"
-  type: default
-  categories: true
-  sort-ui: false
-  filter-ui: false
-page-layout: full
-title-block-banner: true
+title: "About Me"
+image: profile.jpg
+about:
+  template: jolla
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/guglielmo-grillo/
+    - icon: github
+      text: Github
+      href: https://github.com/nerusskyhigh
+    - icon: envelope
+      text: Email
+      href: mailto:cv@guglielmogrillo.com
+callout-appearance: simple
 ---
+
+<div style="text-align: justify">
+I’m a PhD student in Physics at the University of Trento (Statistical and Biological Physics group) with a strong passion for computer science. This passion led me to choose a computational path both for my curricular and extracurricular classes during my bachelor's and Master's degrees and to work on personal projects in my free time. I’m also one of the founding members of Progetto Apollo, a scientific divulgation group operating at the University of Trento in collaboration with Arditodesìo. Since 2019 I’ve been a tutor for the University of Trento. My hobbies include video games and parkour.</div>
+
+---
+
+# Curriculum Vitae
+[Complete Curriculum Vitae (pdf)](assets/G_Grillo_Curriculum_Vitae.pdf){.btn .btn-outline-primary .btn role="button" data-toggle="tooltip" title="Download my CV in pdf format"}  
+  
+[Old Version](https://nerusskyhigh.github.io/online-cv/){.btn .btn-outline-primary .btn role="button" data-toggle="tooltip" title="Download my CV in pdf format"}
+</br>
+</br>
+
+### Work Experience
+
+#### Classroom Tutor <i class="bi bi-person-workspace"></i>
+<div style="text-align: justify">
+In the in-class courses, my task as a tutor was to prepare ad-hoc exercises beforehand and then follow the students in their reasoning by providing hints and guidance toward the solution. In the laboratory courses, our job was to explain the lab experiences to the students and assist them in the data collection and analysis ensuring that they understood the underlying reasoning and scientific approach.
+
+::: {.callout-note collapse="true"}
+#### Additional Info
+**Institution**: _University of Trento_ (Italy)
+
+I was assigned to the following courses:
+
+- _Sep 2022-Dec 2022_: Introductory Physics Laboratory (DII), [Mathematical Basis for Cognitive Sciences]{.underline} (CIMEC), Mathematics and Statistics I (CIBIO);  
+- _Mar 2022-June 2022_: Laboratory of Physics I with Matlab (DF), Introductory Physics Laboratory (DICAM);  
+- _Sep 2021-Dec 2021_: Introductory Physics Laboratory (DII);  
+- _Sep 2020-Dec 2020_: Mathematics and Statistics (A3C);  
+- _Sep 2019-Jan 2020_: Calculus I (DICAM), [Calculus I]{.underline} (DIPSCO), [Quantitative Methods for life-sciences]{.underline} (DIPSCO).
+
+The underlined courses represent the courses for which I was the only tutor. In all other courses, I was part
+of a team of 2 to 4 tutors.
+:::
+</div>
+
+
+#### Storyteller / Science Communicator <i class="bi bi-pen"></i>
+<div style="text-align: justify">
+I'm one of the founding members of Progetto Apollo, a scientific divulgation group operating at the University of Trento in collaboration with Arditodesìo. Some of our activities include research on a key topic or an interview with a Professor at the University of Trento to write narratives with the principles of storytelling.
+
+::: {.callout-note collapse="true"}
+#### Additional Info
+**Institution**: _Arditodesìo_ / _University of Trento_ (Italy)  
+**Date**: _2017-2022_
+
+The plays were then performed in the course of various editions of Teatro della Meraviglia, EIT RAW Materials 2021, CO.SCIENZA Festival 2019, Focus Days 2019 and Fisicittà 2017. In 2022 we partnered with Caltech for the event “La Terra fatta dagli umani” (Earth made by humans) about the beginning of the Anthropocene. The resulting performances were presented both in Trento and at Caltech.
+:::
+</div>
+
+</br>
+</br>
+</br>
+
+### Education and Training
+
+#### PhD in  Physics <i class="bi bi-mortarboard"></i>
+<div style="text-align: justify">
+
+**Scholarship**: _Combining physics, biology and machine learning to understand genome organization in cancer cells_. 
+**Grou:**: [Statistical and Biological Physics Group](https://sbp.physics.unitn.it/)  
+**Supervisor**: prof. [L. Tubiana](https://sbp.physics.unitn.it/luca-tubiana/)
+</div>
+
+</br>
+
+#### Master's Degree in Physics <i class="bi bi-mortarboard"></i>
+<div style="text-align: justify">
+
+**Path**: _Statistical Biophysics_ with a focus on computational methods  
+**Final Grade**: 110/110  
+
+**Thesis**: _Computational Models Of Astrocyte-Neuron Dynamics To Explain The Formation Of Working Memory_  
+**Supervisor**: prof. L. Tubiana  
+
+> The thesis aimed to explore the characteristics of various effective models for neurons with the purpose of finding an effective representation compatible with a description of memory formation via the coupling between neurons and astrocytes. All the models were implemented in Python from scratch.
+
+
+::: {.callout-note collapse="true"}
+#### Additional Info and Relevant Courses
+**Institution**: _University of Trento_ (Italy)
+**Date**: 09/2020-03/2023
+**Relevant Courses**:
+
+- Quantum Computing and Quantum Machine Learning;
+- Advanced Computational Physics;
+- Experimental Methods;
+- Laboratory of Advanced Electronics (signal processing via FPGA);
+- Multi-Scale Methods in Soft Matter Physics;
+- Statistical Mechanics and Statistical Field Theory.
+:::
+</div>
+
+
+
+
+
+#### Cyberchallenge.IT <i class="bi bi-laptop"></i>
+<div style="text-align: justify">
+**Institution**:  _University of Trento_ (Italy) in partnership with _Laboratorio Nazionale di Cybersecurity_ (CINI)
+**Date**: 02/2021-06/2021
+
+CyberChallenge.IT is a course designed to provide the methodological and practical basis to analyze vulnerabilities and possible attacks and identify the most suitable solutions to prevent them.
+</div>
+
+</br>
+
+#### Bachelor's Degree in Physics <i class="bi bi-mortarboard"></i>
+<div style="text-align: justify">
+
+**Thesis**: _Emergent features: from renormalization group to artificial intelligence_  
+**Supervisor**: prof. R. Potestio  
+
+> The thesis focussed on a possible explanation behind the efficiency of machine learning models. In particular, the link between Restricted Boltzmann Machines applied to the Ising Model and a renormalization procedure was examined.
+
+After graduating, I enrolled in the course "Introduction to Data Science for Physicists" as a listener (March-June 2020).
+
+::: {.callout-note collapse="true"}
+#### Additional Info and Relevant Courses
+**Institution**: _University of Trento_ (Italy)
+**Date**: 09/2020-03/2023
+**Final Grade**: 94/110 
+**Relevant Courses**:
+
+- Scientific Computing (fka Computer Science)
+- Introduction to Machine Learning (fka Advanced Algorithms);
+- Linear Algebra I, Analysis I, II, III, and Complex Analysis;
+- Physics I, II, and III, Analytical Mechanics, Quantum Mechanics;
+- Physics Laboratory I (measures), II (analogue electronics and optics), and III (digital electronics);
+- Chemistry with Laboratory Sessions.
+:::
+</div>
+
+#### Innocationcamp Diploma <i class="bi bi-lightbulb"></i>
+<div style="text-align: justify">
+**Institution**:  _University of Trento_ (Italy) in partnership with _Samsung_
+**Date**: 02/2020-04/2023
+
+The first month was devoted to a 25h online course about the main topics of Industrial Innovation and a two-day intensive training course I was allowed to attend upon ranking among the best in the online test. The following months were used to develop a project work on a real business case.
+</div>
+
 
 

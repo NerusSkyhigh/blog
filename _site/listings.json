@@ -1,8 +1,15 @@
 [
   {
+    "listing": "/blog.html",
+    "items": [
+      "/posts/cultOfTheLAMMPS/index.html",
+      "/posts/welcome/index.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
-      "/posts/00_Projects/index.html",
+      "/posts/cultOfTheLAMMPS/index.html",
       "/posts/welcome/index.html"
     ]
   }

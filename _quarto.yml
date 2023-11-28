@@ -1,17 +1,22 @@
 project:
   type: website
-  output-dir: docs
+  output-dir: _site
 
 website:
   title: "NerusSkyhigh's Personal Blog"
   navbar:
     right:
-      - about.qmd
-      - posts/00_Projects/index.qmd
-      - text: "Resumé"
-        href: https://nerusskyhigh.github.io/online-cv/
+      - index.qmd
+      - Projects/index.qmd
+      - text: "CV"
+        href: index.qmd
+      - text: " "
       - icon: github
         href: https://github.com/nerusskyhigh
+      - icon: linkedin
+        href: https://www.linkedin.com/in/guglielmo-grillo/
+      - icon: envelope
+        href: mailto:cv@guglielmogrillo.com
 format:
   html:
     theme: superhero

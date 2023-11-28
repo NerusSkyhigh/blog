@@ -1,44 +1,58 @@
 [
   {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
+    "objectID": "Projects/index.html",
+    "href": "Projects/index.html",
+    "title": "Projects",
     "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+    "text": "This is a post with executable code. But where is it??? D :"
+  },
+  {
+    "objectID": "posts/cultOfTheLAMMPS/index.html#parameters",
+    "href": "posts/cultOfTheLAMMPS/index.html#parameters",
+    "title": "Cult of the LAMMPS",
+    "section": "Parameters",
+    "text": "Parameters\n\ndx = 1e-3\n\nR0_FENE = 1.5\nK_FENE  = 30\n\n\nimport matplotlib.pyplot as plt\nimport matplotlib as mpl\nimport numpy as np\nmpl.rcParams.update({\"axes.grid\": True})\n\nstart_x = -R0_FENE+dx\nend_x = R0_FENE-dx\nn_points = int((end_x-start_x)/dx)\n\n\nx = np.linspace(start_x, end_x,  n_points)\nR = np.abs(x)\nVtot = np.zeros_like(x)\nFtot = np.zeros_like(x)"
+  },
+  {
+    "objectID": "posts/cultOfTheLAMMPS/index.html#langevin-equation",
+    "href": "posts/cultOfTheLAMMPS/index.html#langevin-equation",
+    "title": "Cult of the LAMMPS",
+    "section": "Langevin Equation",
+    "text": "Langevin Equation\n\\[\\frac{\\vec{v}}{dt} = -\\gamma \\vec{v} + \\xi \\mathcal{N}(\\mu=0, \\sigma=1)\\]"
+  },
+  {
+    "objectID": "posts/cultOfTheLAMMPS/index.html#potentials",
+    "href": "posts/cultOfTheLAMMPS/index.html#potentials",
+    "title": "Cult of the LAMMPS",
+    "section": "Potentials",
+    "text": "Potentials\n\\(\\Delta \\vec{x}_{21} = \\vec{x}_2 - \\vec{x}_1\\) is the vector that start from \\(\\vec{x}_1\\) and ends in \\(\\vec{x}_2\\). \\[\\Delta \\vec{x}_{21} = (x_2-x_1; y_2-y_1; z_2-z_1)\\] \\[||\\Delta \\vec{x}_{21}|| = \\sqrt{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2} = R_{21} \\]\n\nAn essential quantity is the derivative of the distance between two points with respect to one of the coordinates of one of the points: \\[\\frac{dR_{21}}{dx_1^i} = \\frac{d}{dx_1^i} \\sqrt{ \\sum \\limits_{j=1}^{\\text{N dimension}} (x_2^j-x_1^j)^2} = \\frac{-2(x_2^i-x_1^i)}{2 \\sqrt{ \\sum \\limits_{j=1}^{\\text{N dimension}} (x_2^i-x_1^i)^2}}=-\\frac{\\Delta x^i_{21}}{R_{21}}\\]\n\nElastic Force\nThe elastic force originates from the harmonic potential \\[V_{HO} = \\frac{k_{HO}}{2}(R_{21}-b_0)^2 = \\frac{k_{HO}}{2} (R_{21}^2 - 2 R_{21}b_0 + b_0^2)\\]\nand its force is the one of a simple, rigid, string: \\[F^{i}_{1} = -\\frac{dV_{HO}}{dx_{1}^i} = -\\frac{k_{HO}}{2} \\left( 2R_{21}-2b_0 \\right) = k_{HO}\\left(\\Delta x_{21}^i - \\frac{b_0 \\Delta x_{21}^i}{R_{21}}\\right)\\]\nNotice that the resting distance \\(b_0\\) is also scaled by the magnitude of the versor.\n\n\nFENE\n\\[V_{F}(r) = -\\frac{1}{2} k_{F} R_{0}^2 \\ln \\left[ 1- \\left( \\frac{r}{R_{0}}\\right)^2 \\right]\\]\nAs usual, the force is the derivative. \\[\\begin{aligned}\nF_{1}^{i} &= - \\frac{d V_{F}(R_{21})}{dR_{21}}\\frac{dR_{21}}{dx_1^i}\\\\\n&=\\frac{1}{2}k_F R_0^2 \\frac{-2 \\frac{R_{21}}{R_0^2}}{1- \\left( \\frac{R_{21}}{R_0}\\right)^2}\\left( -\\frac{\\Delta x_{21}^i}{R_{21}}\\right) \\\\\n&= K_F \\frac{1}{1-\\left( \\frac{R_{21}}{R_0} \\right)^2}\\Delta x_{21}^i\n\\end{aligned}\\]\nFor small vlaues of the distance, the potential is almost harmonic:\n\nV_FENE=-0.5*K_FENE*R0_FENE**2 * \\\n            np.log(1-np.power(R/R0_FENE,2))\n\nF_FENE = K_FENE* R/(1-np.power(R/R0_FENE, 2)) * (x/R)\n\nfig, axs = plt.subplots(1,2, figsize=(9, 3))\naxs[0].plot(x, V_FENE, color=\"y\", label=r\"$V_{FENE}$\")\naxs[0].plot(x, K_FENE*R**2, label=\"Harmonic Potential\")\naxs[0].legend()\n\naxs[1].plot(x, F_FENE, color=\"b\", label=r\"$F_{FENE}$\")\naxs[1].plot(x, K_FENE*x, label=r\"$F_{HO}$\")\naxs[1].legend()\n\naxs[1].set_ylim([-100, 100])\n\n(-100.0, 100.0)\n\n\n\n\n\n\n\nLennard-Jones\n\\[V_{LJ}(r) = 4 \\left[ \\frac{1}{r^{12}} - \\frac{1}{r^{6}} \\right]\\]\n\\[\\begin{aligned}\nF_{1}^{i} &= - \\frac{d V_{LJ}(R_{21})}{dR_{21}}\\frac{dR_{21}}{dx_1^i}\\\\\n&=-4 \\left[ \\frac{-12}{R_{21}^{13}} - \\frac{-6}{R_{21}^{7}}\\right] \\left( -\\frac{\\Delta x_{21}^i}{R_{21}}\\right) \\\\\n&= -\\frac{24}{R_{21}^8} \\left[ \\frac{2}{R_{21}^6}-1 \\right] \\Delta x_{21}^i\n\\end{aligned}\\]\n\nfig, axs = plt.subplots(1,2, figsize=(9, 3))\nV_LJ = 4*( np.power(R, -12)-np.power(R, -6) ) \n\n\nx_LJ = np.linspace(-4, 4, int(12/dx))\nR_LJ = np.abs(x_LJ)\nV_LJ_tmp = 4*( np.power(R_LJ, -12) -np.power(R_LJ, -6) ); \n\nF_LJ = -24*np.power(R_LJ, -8)*(2*np.power(R_LJ, -6)-1)*x_LJ\n\n\naxs[0].plot(x_LJ, V_LJ_tmp, color=\"y\", label=\"LENNARD-JONES\")\naxs[0].set_ylim([-1.1, 2])\n\naxs[1].plot(x_LJ, F_LJ, color=\"b\", label=\"Total Potential\")\naxs[1].set_ylim([-5, 40])\n\n(-5.0, 40.0)\n\n\n\n\n\n\n\nTotal Potential and forces\n\nfig, axs = plt.subplots(1,2, figsize=(9, 3))\nR_min = np.power(2, 1/6)\n\nV_tot = -0.5*K_FENE*R0_FENE**2 * np.log(1-np.power(R/R0_FENE,2))\nV_tot[R&lt;R_min] += 4*( np.power(R[R&lt;R_min], -12)-np.power(R[R&lt;R_min], -6) )\n\n\nF_tot = +K_FENE/(1-np.power(R/R0_FENE, 2)) * x\nF_tot[R&lt;R_min] += -24*np.power(R[R&lt;R_min], -8)*(2*np.power(R[R&lt;R_min], -6)-1)*x[R&lt;R_min]\n\n\naxs[0].vlines(0, 15, 40, \"k\")\naxs[0].plot(x_LJ[R_LJ&lt;R_min], V_LJ_tmp[R_LJ&lt;R_min], color=\"gray\", ls=\"--\")\naxs[0].plot(x, V_FENE, color=\"gray\", ls=\"--\")\naxs[0].plot(x, V_tot, color=\"y\", label=\"LENNARD-JONES\")\naxs[0].set_ylim([15, 40])\n\n\naxs[1].hlines(0, -R0_FENE, R0_FENE, \"k\")\naxs[1].plot(x_LJ[R_LJ&lt;R_min], F_LJ[R_LJ&lt;R_min], color=\"gray\", ls=\"--\")\naxs[1].plot(x, F_FENE, color=\"gray\", ls=\"--\")\n\naxs[1].plot(x, F_tot, color=\"b\", label=\"Total Potential\")\naxs[1].vlines(0, -200, 200, \"k\")\naxs[1].set_ylim([-200, 200])\nplt.show()\n\n\n\n\n\nV_tot_min = np.min(V_tot[x&gt;0])\nprint(f\"The minimum value of the force on the positive axis is: {V_tot_min}\")\n\nR_min = x[V_tot==V_tot_min]\nindex_R_min = np.where(x == R_min)[0]\nprint(f\"and it occurs at x={x[index_R_min]}\")\n\nK_osc = (V_tot[index_R_min+1]-2*V_tot[index_R_min]+V_tot[index_R_min-1])/(dx**2)\nprint(f\"The characteristic oscillations have a duration of: {np.sqrt(1/K_osc)}\")\n\nThe minimum value of the force on the positive axis is: 19.2025767030979\nand it occurs at x=[0.96082049]\nThe characteristic oscillations have a duration of: [0.03189554]"
+  },
+  {
+    "objectID": "posts/cultOfTheLAMMPS/index.html#bond-angle",
+    "href": "posts/cultOfTheLAMMPS/index.html#bond-angle",
+    "title": "Cult of the LAMMPS",
+    "section": "Bond-Angle",
+    "text": "Bond-Angle"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "blog",
+    "section": "",
+    "text": "Cult of the LAMMPS\n\n\n\n\n\n\n\nLAMPPS\n\n\nforce fields\n\n\nphd\n\n\npolymers\n\n\nsimulation\n\n\n\n\n\n\n\n\n\n\n\nNov 20, 2023\n\n\nGuglielmo Grillo\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJul 9, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "blog",
     "section": "",
-    "text": "Projects\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\nprojects\n\n\n\n\n\n\n\n\n\n\n\nJul 12, 2023\n\n\nGuglielmo Grillo\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJul 9, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "Cult of the LAMMPS\n\n\n\n\n\n\n\nLAMPPS\n\n\nforce fields\n\n\nphd\n\n\npolymers\n\n\nsimulation\n\n\n\n\n\n\n\n\n\n\n\nNov 20, 2023\n\n\nGuglielmo Grillo\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJul 9, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
     "section": "",
-    "text": "About this blog"
-  },
-  {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code."
-  },
-  {
-    "objectID": "posts/2023-07-12_post-with-code/index.html",
-    "href": "posts/2023-07-12_post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code. But where is it??? D :"
-  },
-  {
-    "objectID": "posts/00_Projects/index.html",
-    "href": "posts/00_Projects/index.html",
-    "title": "Projects",
-    "section": "",
-    "text": "This is a post with executable code. But where is it??? D :"
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
   }
 ]
